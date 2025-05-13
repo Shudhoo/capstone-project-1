@@ -1,0 +1,14 @@
+# This is a Playbook to configure-software on Master & Slaves of Jenkins !!
+
+- name: "This is Play to Install Java Runtime Environment and Jenkins on Master Jenkins"
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: "Install Java Runtime Environment & Install Jenkins Master"
+      script: install_master.sh
+- name: "This is Play to install Java Runtime Environment and docker on Slaves Jenkins"
+  hosts: jenkins-slaves
+  become: yes
+  tasks:
+    - name: "Install Java Runtime Environment & Docker Runtime"
+      script: install_slaves.sh
